@@ -29,8 +29,15 @@ npm start
 
 ## Database
 - **MongoDB Atlas** (Cloud Database)
-- Connection: `mongodb+srv://palisettysanjaykumar_db_user:***@sample.tuni9fd.mongodb.net/todoapp`
+- Configure your connection string in `backend/.env`
 - No local MongoDB installation required
+
+## Environment Setup
+1. Copy `backend/.env.example` to `backend/.env`
+2. Add your credentials:
+   - MongoDB connection string
+   - JWT secret
+   - Google OAuth credentials (optional)
 
 ## Sample Users
 Login with these credentials:
