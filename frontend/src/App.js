@@ -15,15 +15,20 @@ function App() {
   const [editText, setEditText] = useState('');
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
     if (token) {
+      localStorage.setItem('token', token);
+      window.history.replaceState({}, document.title, '/');
+      setIsAuthenticated(true);
+    } else if (localStorage.getItem('token')) {
       setIsAuthenticated(true);
       fetchTodos();
     }
   }, []);
 
   useEffect(() => {
-    if (isAuthenticated) {
+    if (isAuthenticated && localStorage.getItem('token')) {
       fetchTodos();
     }
   }, [isAuthenticated]);
